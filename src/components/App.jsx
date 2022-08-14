@@ -11,7 +11,17 @@ class App extends Component {
 
   render() {
     return (
-      <Box p={100} px as="main">
+      <Box
+        p={100}
+        px
+        mr="auto"
+        ml="auto"
+        width="500px"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        as="main"
+      >
         <Phonebook />
         {/* <Contacts /> */}
       </Box>
