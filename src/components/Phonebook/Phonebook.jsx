@@ -70,12 +70,13 @@ const Button = styled.button`
   padding: 10px 32px;
 `;
 
-const Phonebook = props => {
+const Phonebook = ({ onSubmit }) => {
   const initialValues = { name: '', number: '' };
 
   const handleSubmit = (values, { resetForm }) => {
+    values.id = nanoid();
     console.log(values);
-    this.props.onSubmit(values);
+    onSubmit(values);
     resetForm();
   };
   return (
