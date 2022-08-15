@@ -30,7 +30,7 @@ class App extends Component {
         as="main"
       >
         <h1>Phonebook</h1>
-        <Phonebook onSubmit={this.onSubmitData} onChange={this.handleChange} />
+        <Phonebook onSubmit={this.onSubmitData} />
         <h2>Contacts</h2>
 
         <Filter FilterByName={this.FilterByName} />
