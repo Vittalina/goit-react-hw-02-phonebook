@@ -1,14 +1,33 @@
 import { Component } from 'react';
 import { Box } from 'components/Box';
 import Phonebook from 'components/Phonebook/Phonebook';
-// import Contacts from 'components/Contacts/Contacts';
+import Contacts from 'components/Contacts/Contacts';
+import Filter from 'components/Filter/Filter';
 
 class App extends Component {
   state = {
     contacts: [],
-    name: '',
+    filter: '',
   };
 
+  FilterByName = values => {
+    this.setState({
+      filter: values.filter,
+    });
+  };
+
+  onSubmitData = data => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, data],
+    }));
+
+    // this.setState(prevState => {
+    //   return { [data]: prevState[data] };
+    // });
+    // this.setState(prevState => ({
+    //   contacts: [...prevState.contacts, data],
+    // }));
+  };
   render() {
     return (
       <Box
@@ -22,8 +41,11 @@ class App extends Component {
         justifyContent="center"
         as="main"
       >
-        <Phonebook />
-        {/* <Contacts /> */}
+        <h1>Phonebook</h1>
+        <Phonebook onSubmit={this.onSubmitData} />
+        <h2>Contacts</h2>
+        <Filter FilterByName={this.FilterByName} />
+        <Contacts contacts={this.state.contacts} />
       </Box>
     );
   }
