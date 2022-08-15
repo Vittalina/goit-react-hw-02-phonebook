@@ -3,7 +3,7 @@ import * as yup from 'yup';
 import styled from '@emotion/styled';
 
 const schema = yup.object({
-  filter: yup.string().min(6),
+  filter: yup.string(),
 });
 
 const initialValues = {
