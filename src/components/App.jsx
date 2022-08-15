@@ -10,24 +10,12 @@ class App extends Component {
     filter: '',
   };
 
-  FilterByName = values => {
-    this.setState({
-      filter: values.filter,
+  onSubmitData = data => {
+    this.setState(prevState => {
+      return { [data]: prevState[data] };
     });
   };
 
-  onSubmitData = data => {
-    this.setState(prevState => ({
-      contacts: [...prevState.contacts, data],
-    }));
-
-    // this.setState(prevState => {
-    //   return { [data]: prevState[data] };
-    // });
-    // this.setState(prevState => ({
-    //   contacts: [...prevState.contacts, data],
-    // }));
-  };
   render() {
     return (
       <Box
@@ -42,7 +30,7 @@ class App extends Component {
         as="main"
       >
         <h1>Phonebook</h1>
-        <Phonebook onSubmit={this.onSubmitData} />
+        <Phonebook onSubmit={this.onSubmitData} onChange={this.handleChange} />
         <h2>Contacts</h2>
         <Filter FilterByName={this.FilterByName} />
         <Contacts contacts={this.state.contacts} />
