@@ -5,17 +5,19 @@ import { nanoid } from 'nanoid';
 
 const id = nanoid();
 
-const Contacts = ({ contacts }) => (
-  <ul>
-    {contacts.map(contact => (
-      <li key={id}>
-        <span>
-          {contact.name}: {contact.number}
-        </span>
-      </li>
-    ))}
-  </ul>
-);
+const Contacts = ({ contacts }) => {
+  return (
+    <ul>
+      {contacts.map(contact => (
+        <li key={id}>
+          <span>
+            {contact.name}: {contact.number}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 Contacts.propTypes = {
   contacts: PropTypes.arrayOf(

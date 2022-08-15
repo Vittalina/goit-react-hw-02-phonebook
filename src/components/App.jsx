@@ -10,9 +10,9 @@ class App extends Component {
     filter: '',
   };
 
-  onSubmitData = data => {
+  onSubmitData = contacts => {
     this.setState(prevState => {
-      return { [data]: prevState[data] };
+      return { [contacts]: prevState[contacts] };
     });
   };
 
