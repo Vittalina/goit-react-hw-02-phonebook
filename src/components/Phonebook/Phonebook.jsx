@@ -12,8 +12,6 @@ const schema = yup.object().shape({
 
 const id = nanoid();
 
-const initialValues = { name: '', number: '' };
-
 const FormField = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -72,9 +70,12 @@ const Button = styled.button`
   padding: 10px 32px;
 `;
 
-const Phonebook = () => {
+const Phonebook = props => {
+  const initialValues = { name: '', number: '' };
+
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
+    this.props.onSubmit(values);
     resetForm();
   };
   return (

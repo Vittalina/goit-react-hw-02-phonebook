@@ -10,10 +10,19 @@ class App extends Component {
     filter: '',
   };
 
-  onSubmitData = contacts => {
-    this.setState(prevState => {
-      return { [contacts]: prevState[contacts] };
+  onSubmitData = data => {
+    this.setState({
+      contacts: [
+        ...this.state.contacts,
+        {
+          name: data.name,
+          number: data.number,
+        },
+      ],
     });
+    // this.setState(prevState => {
+    //   return { [contacts]: prevState[contacts] };
+    // });
   };
 
   render() {
