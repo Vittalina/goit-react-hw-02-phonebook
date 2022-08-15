@@ -32,8 +32,10 @@ class App extends Component {
         <h1>Phonebook</h1>
         <Phonebook onSubmit={this.onSubmitData} onChange={this.handleChange} />
         <h2>Contacts</h2>
+
         <Filter FilterByName={this.FilterByName} />
         <Contacts contacts={this.state.contacts} />
+        {/* <p>Phonebook is empty</p> */}
       </Box>
     );
   }
