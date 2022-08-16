@@ -47,9 +47,10 @@ const TextMessage = styled(ErrorMessage)`
   color: red;
 `;
 
-const Filter = () => {
+const Filter = ({ onChange }) => {
   const onFormSubmit = (values, { resetForm }) => {
     console.log(values);
+    onChange(values);
     resetForm();
   };
   return (
@@ -61,7 +62,7 @@ const Filter = () => {
       <FormField>
         <Label>
           Find contacts by name
-          <Input type="text" name="filter" />
+          <Input type="text" name="filter" placeholder="Search" />
           <TextMessage name="filter" component="div" />
         </Label>
       </FormField>

@@ -3,8 +3,6 @@ import * as yup from 'yup';
 import { nanoid } from 'nanoid';
 import styled from '@emotion/styled';
 
-// import { Input } from 'components/Phonebook/Phonebook.styled';
-
 const schema = yup.object().shape({
   name: yup.string().required(),
   number: yup.number().min(6).required(),
@@ -79,6 +77,7 @@ const Phonebook = ({ onSubmit }) => {
     onSubmit(values);
     resetForm();
   };
+
   return (
     <Formik
       initialValues={initialValues}

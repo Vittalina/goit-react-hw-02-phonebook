@@ -11,18 +11,23 @@ class App extends Component {
   };
 
   onSubmitData = data => {
+    this.setState(prevState => ({
+      contacts: [...prevState.contacts, data],
+    }));
+  };
+
+  filterByName = value => {
     this.setState({
-      contacts: [
-        ...this.state.contacts,
-        {
-          name: data.name,
-          number: data.number,
-        },
-      ],
+      filter: value.filter,
     });
-    // this.setState(prevState => {
-    //   return { [contacts]: prevState[contacts] };
-    // });
+
+    // this.setState({ filter: event.target.value });
+  };
+
+  onClickDelete = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   render() {
@@ -42,8 +47,11 @@ class App extends Component {
         <Phonebook onSubmit={this.onSubmitData} />
         <h2>Contacts</h2>
 
-        <Filter FilterByName={this.FilterByName} />
-        <Contacts contacts={this.state.contacts} />
+        <Filter onChange={this.filterByName} />
+        <Contacts
+          contacts={this.state.contacts}
+          onClickDelete={this.onClickDelete}
+        />
         {/* <p>Phonebook is empty</p> */}
       </Box>
     );

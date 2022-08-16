@@ -1,19 +1,24 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { nanoid } from 'nanoid';
-// import { Title } from 'components/Contacts/Contacts.styled';
+import { ListItem, Button } from 'components/Contacts/Contacts.styled';
 
-const id = nanoid();
-
-const Contacts = ({ contacts }) => {
+const Contacts = ({ contacts, onClickDelete }) => {
   return (
     <ul>
       {contacts.map(contact => (
-        <li key={id}>
+        <ListItem key={nanoid()}>
           <span>
             {contact.name}: {contact.number}
           </span>
-        </li>
+          <Button
+            type="button"
+            id={contact.number}
+            onClick={() => onClickDelete(contact.id)}
+          >
+            Delete
+          </Button>
+        </ListItem>
       ))}
     </ul>
   );
