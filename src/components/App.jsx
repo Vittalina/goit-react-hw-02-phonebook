@@ -11,6 +11,15 @@ class App extends Component {
   };
 
   onSubmitData = data => {
+    const filteredNames = this.state.contacts.filter(
+      contact => contact.name.toLowerCase() === data.name.toLowerCase()
+    );
+    console.log(filteredNames);
+
+    if (filteredNames.length > 0) {
+      alert(`${data.name} is already in contacts`);
+      return;
+    }
     this.setState(prevState => ({
       contacts: [...prevState.contacts, data],
     }));
@@ -52,7 +61,6 @@ class App extends Component {
           contacts={this.state.contacts}
           onClickDelete={this.onClickDelete}
         />
-        {/* <p>Phonebook is empty</p> */}
       </Box>
     );
   }
