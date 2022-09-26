@@ -60,7 +60,7 @@ class App extends Component {
         <Phonebook onSubmit={this.onSubmitData} />
         <h2>Contacts</h2>
 
-        <Filter onChange={this.changeFilter} />
+        <Filter value={this.state.filter} onChange={this.changeFilter} />
         <Contacts
           contacts={this.state.contacts}
           onClickDelete={this.onClickDelete}
