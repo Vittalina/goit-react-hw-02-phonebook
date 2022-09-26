@@ -59,7 +59,7 @@ class App extends Component {
         <h2>Contacts</h2>
 
         <Filter value={filter} onChange={this.changeFilter} />
-        <Contacts contacts={contacts} onClickDelete={this.onClickDelete} />
+        <Contacts contacts={filteredNames} onClickDelete={this.onClickDelete} />
       </Box>
     );
   }
