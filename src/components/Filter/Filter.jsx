@@ -6,10 +6,6 @@ const schema = yup.object({
   filter: yup.string(),
 });
 
-const initialValues = {
-  filter: '',
-};
-
 const FormField = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -48,11 +44,16 @@ const TextMessage = styled(ErrorMessage)`
 `;
 
 const Filter = ({ onChange }) => {
+  const initialValues = {
+    filter: '',
+  };
+
   const onFormSubmit = (values, { resetForm }) => {
     console.log(values);
     onChange(values);
     resetForm();
   };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -69,9 +70,5 @@ const Filter = ({ onChange }) => {
     </Formik>
   );
 };
-
-// Contacts.propTypes = {
-//   title: PropTypes.string.isRequired,
-// };
 
 export default Filter;

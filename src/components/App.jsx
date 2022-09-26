@@ -25,12 +25,16 @@ class App extends Component {
     }));
   };
 
-  filterByName = value => {
-    this.setState({
-      filter: value.filter,
-    });
+  // filterByName = value => {
+  //   this.setState({
+  //     filter: value.filter,
+  //   });
 
-    // this.setState({ filter: event.target.value });
+  //   // this.setState({ filter: event.target.value });
+  // };
+
+  changeFilter = e => {
+    this.setState({ filter: e.currentTarget.value });
   };
 
   onClickDelete = id => {
@@ -56,7 +60,7 @@ class App extends Component {
         <Phonebook onSubmit={this.onSubmitData} />
         <h2>Contacts</h2>
 
-        <Filter onChange={this.filterByName} />
+        <Filter onChange={this.changeFilter} />
         <Contacts
           contacts={this.state.contacts}
           onClickDelete={this.onClickDelete}
